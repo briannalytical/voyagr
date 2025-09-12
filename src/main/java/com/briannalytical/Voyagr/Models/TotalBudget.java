@@ -11,5 +11,3 @@ public class TotalBudget {
         return maxBudget.subtract(budgetAllocated);
     }
 }
-
-
