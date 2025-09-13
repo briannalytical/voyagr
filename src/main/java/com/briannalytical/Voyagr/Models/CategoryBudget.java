@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class CategoryBudget {
     private Trip trip;
-    private String categoryName; // "Transportation", "Lodging", etc.
+    private String categoryName;
     private BigDecimal budgetAmount;
 
     public CategoryBudget(Trip trip, String categoryName, BigDecimal budgetAmount) {
