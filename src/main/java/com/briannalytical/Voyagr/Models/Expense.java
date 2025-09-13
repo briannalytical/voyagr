@@ -9,4 +9,14 @@ public abstract class Expense {
     private String description;
     private User user;
     private Trip trip;
+
+    public Expense() {}
+
+    public Expense(BigDecimal amount, LocalDateTime date, String description, User user, Trip trip) {
+        this.amount = amount;
+        this.date = date;
+        this.description = description;
+        this.user = user;
+        this.trip = trip;
+    }
 }
