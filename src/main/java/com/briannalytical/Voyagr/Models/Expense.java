@@ -19,4 +19,36 @@ public abstract class Expense {
         this.user = user;
         this.trip = trip;
     }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+    public LocalDateTime getDate() {
+        return date;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public User getUser() {
+        return user;
+    }
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
+    public void setTrip(Trip trip) {
+        this.trip = trip;
+    }
 }

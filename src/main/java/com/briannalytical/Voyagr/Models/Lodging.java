@@ -40,4 +40,8 @@ public class Lodging extends Expense {
     public void setCheckOut(LocalDate checkOut) {
         this.checkOut = checkOut;
     }
+
+    public int calculateTotalTripDays() {
+
+    }
 }

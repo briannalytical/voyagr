@@ -13,10 +13,6 @@ public class TotalBudget {
         this.budgetAllocated = budgetAllocated;
     }
 
-    public BigDecimal calculateRemaining() {
-        return maxBudget.subtract(budgetAllocated);
-    }
-
     public BigDecimal getMaxBudget() {
         return maxBudget;
     }
@@ -25,5 +21,9 @@ public class TotalBudget {
     }
     public BigDecimal getBudgetAllocated() {
         return budgetAllocated;
+    }
+
+    public BigDecimal calculateRemaining() {
+        return maxBudget.subtract(budgetAllocated);
     }
 }
