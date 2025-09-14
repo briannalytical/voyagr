@@ -25,8 +25,13 @@ public class Days {
     public void setEndDate(LocalDate endDate) {this.endDate = endDate;}
     public void setIndividualDate(List<LocalDate> individualDate) {this.individualDate = individualDate;}
 
-    public int getTotalDays() {
+    public int calculateTotalDays() {
         return (int) ChronoUnit.DAYS.between(beginDate, endDate) + 1;
+    }
+    public int calculateDaysRemaining() {
+        LocalDate today = LocalDate.now();
+        long daysBetween = ChronoUnit.DAYS.between(beginDate, today);
+        return (int) daysBetween + 1;
     }
 }
 
