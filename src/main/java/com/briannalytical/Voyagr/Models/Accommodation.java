@@ -27,25 +27,13 @@ public class Accommodation extends Expense{
         this.reservationLink = reservationLink;
     }
 
-    public LocalDate getCheckInDate() {
-        return checkInDate;
-    }
-    public LocalDate getCheckOutDate() {
-        return checkOutDate;
-    }
-    public String getReservationLink() {
-        return reservationLink;
-    }
+    public LocalDate getCheckInDate() {return checkInDate;}
+    public LocalDate getCheckOutDate() {return checkOutDate;}
+    public String getReservationLink() {return reservationLink;}
 
-    public void setCheckInDate(LocalDate checkInDate) {
-        this.checkInDate = checkInDate;
-    }
-    public void setCheckOutDate(LocalDate checkOutDate) {
-        this.checkOutDate = checkOutDate;
-    }
-    public void setReservationLink(String reservationLink) {
-        this.reservationLink = reservationLink;
-    }
+    public void setCheckInDate(LocalDate checkInDate) {this.checkInDate = checkInDate;}
+    public void setCheckOutDate(LocalDate checkOutDate) {this.checkOutDate = checkOutDate;}
+    public void setReservationLink(String reservationLink) {this.reservationLink = reservationLink;}
 
     public int calculateNights() {
         return (int) ChronoUnit.DAYS.between(checkInDate, checkOutDate);

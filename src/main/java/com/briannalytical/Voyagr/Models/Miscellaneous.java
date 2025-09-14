@@ -30,4 +30,5 @@ public class Miscellaneous extends Expense {
     public void setMisBudget(BigDecimal misBudget) {
         this.misBudget = misBudget;
     }
+
 }
