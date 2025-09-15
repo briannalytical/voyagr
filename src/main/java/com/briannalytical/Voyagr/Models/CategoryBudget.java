@@ -1,16 +1,17 @@
 package com.briannalytical.Voyagr.Models;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class CategoryBudget {
     private Trip trip;
     private String categoryName;
-    private BigDecimal budgetAmount;
+    private BigDecimal totalBudgetAmount;
 
     public CategoryBudget(Trip trip, String categoryName, BigDecimal budgetAmount) {
         this.trip = trip;
         this.categoryName = categoryName;
-        this.budgetAmount = budgetAmount;
+        this.totalBudgetAmount = budgetAmount;
     }
 
     public Trip getTrip() {
@@ -20,7 +21,7 @@ public class CategoryBudget {
         return categoryName;
     }
     public BigDecimal getBudgetAmount() {
-        return budgetAmount;
+        return totalBudgetAmount;
     }
 
     public void setTrip(Trip trip) {
@@ -30,6 +31,17 @@ public class CategoryBudget {
         this.categoryName = categoryName;
     }
     public void setBudgetAmount(BigDecimal budgetAmount) {
-        this.budgetAmount = budgetAmount;
+        this.totalBudgetAmount = budgetAmount;
     }
+
+
+    public BigDecimal totalTripBudgetSpent(List<Expense> tripExpenses) {
+        BigDecimal totalSpent = BigDecimal.ZERO;
+        for (Expense expense : tripExpenses) {
+            totalSpent = totalSpent.add(expense.getAmount());
+        }
+        return totalSpent;
+    }
+
+
 }
