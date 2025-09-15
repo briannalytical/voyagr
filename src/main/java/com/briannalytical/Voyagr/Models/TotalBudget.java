@@ -1,6 +1,7 @@
 package com.briannalytical.Voyagr.Models;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class TotalBudget {
     private final BigDecimal maxBudget;
@@ -26,4 +27,15 @@ public class TotalBudget {
     public BigDecimal calculateRemaining() {
         return maxBudget.subtract(budgetAllocated);
     }
+    public BigDecimal calculateTripBudgetSpent(List<Expense> tripExpenses) {
+        BigDecimal totalSpent = BigDecimal.ZERO;
+        for (Expense expense : tripExpenses) {
+            totalSpent = totalSpent.add(expense.getAmount());
+        }
+        return totalSpent;
+    }
+    public BigDecimal calculateActualRemaining(List<Expense> tripExpenses) {
+        return maxBudget.subtract(calculateTripBudgetSpent(tripExpenses));
+    }
+
 }
