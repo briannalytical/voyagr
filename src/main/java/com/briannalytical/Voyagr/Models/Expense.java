@@ -20,9 +20,7 @@ public abstract class Expense {
         this.trip = trip;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
+    public BigDecimal getAmount() {return amount;}
     public LocalDateTime getDate() {
         return date;
     }
@@ -36,9 +34,7 @@ public abstract class Expense {
         return trip;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
+    public void setAmount(BigDecimal amount) {this.amount = amount;}
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
@@ -52,3 +48,5 @@ public abstract class Expense {
         this.trip = trip;
     }
 }
+
+
