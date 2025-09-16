@@ -1,6 +1,7 @@
 package com.briannalytical.Voyagr.Models;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -12,6 +13,8 @@ public class Activity extends Expense {
     private String activityReservationInfo;
     private LocalTime startTime;
     private LocalTime endTime;
+
+    public Activity() {}
 
     public Activity(String activityName, BigDecimal activityCost, String activityReservationInfo, LocalTime startTime, LocalTime endTime) {
         this.activityName = activityName;
@@ -48,12 +51,34 @@ public class Activity extends Expense {
     }
     public void setActivityReservationInfo(String activityReservationInfo){this.activityReservationInfo = activityReservationInfo;}
     public void setStartTime(LocalTime startTime) {this.startTime = startTime;}
-    public void getEndTime(LocalTime endTime) {this.endTime = endTime;}
+    public void setEndTime(LocalTime endTime) {this.endTime = endTime;}
 
+
+    public boolean hasTimeInfo() {
+        return startTime != null;
+    }
 
     public boolean hasCompleteTimeInfo() {
         return startTime != null && endTime != null;
     }
+
+    public Duration getDuration() {
+        if (startTime == null) {
+            throw new IllegalStateException("Cannot calculate duration: start time is required");
+        }
+        if (endTime == null) {
+            throw new IllegalStateException("Cannot calculate duration: end time is required");
+        }
+        if (startTime.isAfter(endTime)) {
+            throw new IllegalArgumentException("Cannot calculate duration: start time cannot be after end time");
+        }
+        return Duration.between(startTime, endTime);
+    }
+
+    public boolean hasReservation() {
+        return activityReservationInfo != null && !activityReservationInfo.trim().isEmpty();
+    }
+
     public boolean overlapsWith(Activity otherActivity) {
         // First check if activities are on the same date
         if (!this.getDate().toLocalDate().equals(otherActivity.getDate().toLocalDate())) {
