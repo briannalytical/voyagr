@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Trip {
-    private String name;
+    private String tripName;
     private LocalDate startDate;
     private LocalDate endDate;
     private BigDecimal totalBudget;
@@ -13,8 +13,8 @@ public class Trip {
     private List<CategoryBudget> categoryBudgets;
     private List<DailyBudget> dailyBudgets;
 
-    public Trip(String name, LocalDate startDate, LocalDate endDate, BigDecimal totalBudget, User user, List<CategoryBudget> categoryBudgets, List<DailyBudget> dailyBudgets) {
-        this.name = name;
+    public Trip(String tripName, LocalDate startDate, LocalDate endDate, BigDecimal totalBudget, User user, List<CategoryBudget> categoryBudgets, List<DailyBudget> dailyBudgets) {
+        this.tripName = tripName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalBudget = totalBudget;
@@ -23,9 +23,7 @@ public class Trip {
         this.dailyBudgets = dailyBudgets;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getTripName() {return tripName;}
     public LocalDate getStartDate() {
         return startDate;
     }
@@ -45,9 +43,7 @@ public class Trip {
         return dailyBudgets;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setTripName(String tripName) {this.tripName = tripName;}
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
