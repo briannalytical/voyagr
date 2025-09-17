@@ -80,16 +80,22 @@ public class Activity extends Expense {
     }
 
     public boolean overlapsWith(Activity otherActivity) {
-        // First check if activities are on the same date
+        // null check
+        if (this.getDate() == null || otherActivity.getDate() == null) {
+            return false;
+        }
+        // same date check
         if (!this.getDate().toLocalDate().equals(otherActivity.getDate().toLocalDate())) {
             return false; // Different dates can't overlap
         }
+        // time info check
         if (this.startTime == null || otherActivity.startTime == null) {
             return false; // Can't check overlap without start times
         }
-        LocalTime thisEnd = (this.endTime != null) ? this.endTime : this.startTime.plusHours(1); // assume 1 hour if no end time
+        // handle case where time may be null
+        LocalTime thisEnd = (this.endTime != null) ? this.endTime : this.startTime.plusHours(1);
         LocalTime otherEnd = (otherActivity.endTime != null) ? otherActivity.endTime : otherActivity.startTime.plusHours(1);
-        // Check for overlap: activities overlap if one starts before the other ends
+        // check overlap
         return this.startTime.isBefore(otherEnd) && thisEnd.isAfter(otherActivity.startTime);
     }
 }
