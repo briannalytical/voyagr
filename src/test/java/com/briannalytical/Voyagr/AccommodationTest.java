@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AccommodationTest {
 
+    //TODO: unexpected exception thrown
     @Test
     public void calculateNights_withNullCheckInDate_shouldThrowException() {
         // Arrange - create accommodation object with null date
