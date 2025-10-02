@@ -22,4 +22,9 @@ public class Provisions extends Expense {
     public void setSubcategory(String subcategory) {
         this.subcategory = subcategory;
     }
+
+    @Override
+    public String getCategoryName() {
+        return "Provisions";
+    }
 }

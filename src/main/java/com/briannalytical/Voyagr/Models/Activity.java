@@ -54,6 +54,11 @@ public class Activity extends Expense {
     public void setEndTime(LocalTime endTime) {this.endTime = endTime;}
 
 
+    @Override
+    public String getCategoryName() {
+        return "Activity";
+    }
+
     public boolean hasTimeInfo() {
         return startTime != null;
     }
