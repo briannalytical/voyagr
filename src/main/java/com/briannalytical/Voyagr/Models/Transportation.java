@@ -39,4 +39,9 @@ public class Transportation extends Expense {
     public void setToLocation(String toLocation) {
         this.toLocation = toLocation;
     }
+
+    @Override
+    public String getCategoryName() {
+        return "Transportation";
+    }
 }

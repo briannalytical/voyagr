@@ -47,6 +47,9 @@ public abstract class Expense {
     public void setTrip(Trip trip) {
         this.trip = trip;
     }
+
+    public abstract String getCategoryName();
+
 }
 
 

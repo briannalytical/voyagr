@@ -31,4 +31,9 @@ public class Miscellaneous extends Expense {
         this.misBudget = misBudget;
     }
 
+    @Override
+    public String getCategoryName() {
+        return "Miscellaneous";
+    }
+
 }

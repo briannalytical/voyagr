@@ -46,4 +46,9 @@ public class Accommodation extends Expense{
     public int calculateNights() {
         return (int) ChronoUnit.DAYS.between(checkInDate, checkOutDate);
     }
+
+    @Override
+    public String getCategoryName() {
+        return "Lodging";
+    }
 }
