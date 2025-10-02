@@ -24,9 +24,15 @@ public class TotalBudget {
         return budgetAllocated;
     }
 
-    public BigDecimal calculateRemaining() {
-        return maxBudget.subtract(budgetAllocated);
+
+    public BigDecimal totalTripBudgetAllocated(List<CategoryBudget> categoryBudgets) {
+        BigDecimal totalAllocated = BigDecimal.ZERO;
+        for (CategoryBudget budget : categoryBudgets) {
+            totalAllocated = totalAllocated.add(budget.getBudgetAmount());
+        }
+        return totalAllocated;
     }
+
     public BigDecimal calculateTripBudgetSpent(List<Expense> tripExpenses) {
         BigDecimal totalSpent = BigDecimal.ZERO;
         for (Expense expense : tripExpenses) {
@@ -37,5 +43,6 @@ public class TotalBudget {
     public BigDecimal calculateActualRemaining(List<Expense> tripExpenses) {
         return maxBudget.subtract(calculateTripBudgetSpent(tripExpenses));
     }
+
 
 }

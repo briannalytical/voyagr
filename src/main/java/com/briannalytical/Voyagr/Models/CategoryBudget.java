@@ -35,13 +35,4 @@ public class CategoryBudget {
     }
 
 
-    public BigDecimal totalTripBudgetSpent(List<Expense> tripExpenses) {
-        BigDecimal totalSpent = BigDecimal.ZERO;
-        for (Expense expense : tripExpenses) {
-            totalSpent = totalSpent.add(expense.getAmount());
-        }
-        return totalSpent;
-    }
-
-
 }
