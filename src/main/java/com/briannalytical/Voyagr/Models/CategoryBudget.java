@@ -35,4 +35,14 @@ public class CategoryBudget {
     }
 
 
+    public BigDecimal getAmountSpent(List<Expense> tripExpenses) {
+        BigDecimal spent = BigDecimal.ZERO;
+        for (Expense expense : tripExpenses) {
+            if (expense.getCategoryName().equals(this.categoryName)) {
+                spent = spent.add(expense.getAmount());
+            }
+        }
+        return spent;
+    }
+
 }
