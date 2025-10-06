@@ -36,7 +36,7 @@ public class CategoryBudget {
     }
 
 
-    public BigDecimal getAmountSpent(List<Expense> tripExpenses) {
+    public BigDecimal calculateAmountSpent(List<Expense> tripExpenses) {
         BigDecimal spent = BigDecimal.ZERO;
         for (Expense expense : tripExpenses) {
             if (expense.getCategoryName().equals(this.categoryName)) {
@@ -47,18 +47,18 @@ public class CategoryBudget {
     }
 
     public BigDecimal calculateRemainingBudget(List<Expense> tripExpenses) {
-        return totalBudgetAmount.subtract(getAmountSpent(tripExpenses));
+        return totalBudgetAmount.subtract(calculateAmountSpent(tripExpenses));
     }
 
     public boolean isOverBudget(List<Expense> tripExpenses) {
-        return getAmountSpent(tripExpenses).compareTo(totalBudgetAmount) > 0;
+        return calculateAmountSpent(tripExpenses).compareTo(totalBudgetAmount) > 0;
     }
 
-    public BigDecimal getPercentageUsed(List<Expense> tripExpenses) {
+    public BigDecimal calculatePercentageUsed(List<Expense> tripExpenses) {
         if (totalBudgetAmount.compareTo(BigDecimal.ZERO) == 0) {
             return BigDecimal.ZERO;
         }
-        return getAmountSpent(tripExpenses)
+        return calculateAmountSpent(tripExpenses)
                 .divide(totalBudgetAmount, 2, RoundingMode.HALF_UP)
                 .multiply(new BigDecimal("100"));
     }
