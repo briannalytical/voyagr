@@ -10,15 +10,17 @@ public class Trip {
     private LocalDate endDate;
     private BigDecimal totalBudget;
     private User user;
+    private List<Plan> plans;
     private List<CategoryBudget> categoryBudgets;
     private List<DailyBudget> dailyBudgets;
 
-    public Trip(String tripName, LocalDate startDate, LocalDate endDate, BigDecimal totalBudget, User user, List<CategoryBudget> categoryBudgets, List<DailyBudget> dailyBudgets) {
+    public Trip(String tripName, LocalDate startDate, LocalDate endDate, BigDecimal totalBudget, User user, List<Plan> plans, List<CategoryBudget> categoryBudgets, List<DailyBudget> dailyBudgets) {
         this.tripName = tripName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalBudget = totalBudget;
         this.user = user;
+        this.plans = plans;
         this.categoryBudgets = categoryBudgets;
         this.dailyBudgets = dailyBudgets;
     }
@@ -42,6 +44,7 @@ public class Trip {
     public List<DailyBudget> getDailyBudgets() {
         return dailyBudgets;
     }
+    public List<Plan> getPlans() {return plans;}
 
     public void setTripName(String tripName) {this.tripName = tripName;}
     public void setStartDate(LocalDate startDate) {
@@ -62,4 +65,5 @@ public class Trip {
     public void setDailyBudgets(List<DailyBudget> dailyBudgets) {
         this.dailyBudgets = dailyBudgets;
     }
+    public void setPlans(List<Plan> plans) {this.plans = plans;}
 }
