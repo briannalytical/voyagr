@@ -1,5 +1,6 @@
 package com.briannalytical.Voyagr.Models;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,4 +32,34 @@ public class Plan {
     public void setCategoryBudgets(List<CategoryBudget> categoryBudgets) {this.categoryBudgets = categoryBudgets;}
 
     public void setPlannedExpenses(List<Expense> plannedExpenses) {this.plannedExpenses = plannedExpenses;}
+
+
+    // see allocation for a specific category
+    public BigDecimal getCategoryAllocation(String categoryName) {
+        for (CategoryBudget budget : categoryBudgets) {
+            if (budget.getCategoryName().equals(categoryName)) {
+                return budget.getBudgetAmount();
+            }
+        }
+        return BigDecimal.ZERO;
+    }
+
+    // see how much budget is still unallocated
+    public BigDecimal getRemainingToAllocate(BigDecimal totalTripBudget) {
+        return totalTripBudget.subtract(getTotalAllocated());
+    }
+
+    // validate the plan doesn't exceed total budget
+    public boolean isValidAllocation(BigDecimal totalTripBudget) {
+        return getTotalAllocated().compareTo(totalTripBudget) <= 0;
+    }
+
+    // helper to sum all allocations
+    public BigDecimal getTotalAllocated() {
+        BigDecimal total = BigDecimal.ZERO;
+        for (CategoryBudget budget : categoryBudgets) {
+            total = total.add(budget.getBudgetAmount());
+        }
+        return total;
+    }
 }
